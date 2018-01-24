@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+
+  <appender name="appender" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+    <param name="File" value="${catalina.base}/logs/ryanair.log"/>
+    <param name="Append" value="true"/>
+    <param name="Threshold" value="DEBUG"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%-5p] [%d{dd MMM yyyy HH:mm:ss.SSS}] [%c{1}(%M:%L)] %m%n"/>
+    </layout>
+  </appender>
+
+
+  <root>
+    <level value="WARN"/>
+    <appender-ref ref="appender"/>
+  </root>
+
+  <logger name="es.ryanair.interconnections">
+    <level value="TRACE"/>
+  </logger>
+
+</log4j:configuration>
